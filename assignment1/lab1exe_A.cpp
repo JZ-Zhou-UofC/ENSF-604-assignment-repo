@@ -2,7 +2,7 @@
  *  lab1exe_A.cpp
  *  ENSF 694 Lab 1, exercise A
  *  Created by Mahmood Moussavi
- *  Completed by: Student Name
+ *  Completed by: John Zhou
  */
 
 #include <iostream>

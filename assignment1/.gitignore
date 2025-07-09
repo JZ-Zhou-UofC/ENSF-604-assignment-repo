@@ -1,0 +1,70 @@
+# ---- C++ Build Artifacts ----
+*.o
+*.obj
+*.so
+*.dll
+*.exe
+*.out
+*.a
+*.lib
+
+# ---- CMake ----
+CMakeFiles/
+CMakeCache.txt
+cmake_install.cmake
+Makefile
+build/
+build-*/
+
+# ---- Compiled Dynamic Libraries ----
+*.dylib
+
+# ---- Code::Blocks ----
+*.depend
+*.layout
+*.cbp
+*.workspace
+
+# ---- CLion / JetBrains ----
+.idea/
+cmake-build-*/
+
+# ---- Visual Studio ----
+*.vcxproj*
+*.sln
+*.suo
+*.user
+*.userosscache
+*.ncb
+*.pdb
+*.idb
+*.aps
+*.vspscc
+*.vssscc
+*.vcproj.*
+*.cache
+*.log
+ipch/
+.vs/
+
+# ---- Qt Creator ----
+*.pro.user
+*.pro.user.*
+*.qmake.stash
+
+# ---- General ----
+*.log
+*.tmp
+*.swp
+*.DS_Store
+*.directory
+Thumbs.db
+
+# ---- Conan / vcpkg (optional) ----
+.conan/
+vcpkg_installed/
+
+# ---- Custom ----
+bin/
+debug/
+release/
