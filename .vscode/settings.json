@@ -1,0 +1,17 @@
+{
+    "files.associations": {
+        "cmath": "cpp",
+        "xutility": "cpp",
+        "ctime": "cpp",
+        "xlocale": "cpp",
+        "iostream": "cpp"
+    },
+"terminal.integrated.profiles.windows": {
+  "Cygwin": {
+    "path": "C:\\cygwin64\\bin\\bash.exe",
+    "args": ["--login", "-i"]
+  }
+},
+    
+
+}
