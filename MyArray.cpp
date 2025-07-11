@@ -137,6 +137,8 @@ bool isEmpty(MyArray *myArray)
     return myArray->list_size == 0;
 }
 
-int size(const MyArray* myArray) {
-    return myArray->list_size;  
+int size(MyArray *myArray)
+{
+
+    return myArray->list_size;
 }

@@ -10,12 +10,11 @@ struct MyArray
     int list_size;
 };
 
-int size(const MyArray* myArray);
+int size(MyArray *myArray);
 /*
  * REQUIRES: pointer myArray points to an object of struct MyArray.
  * PROMISES: returns value of myArray->list_size.
  */
-
 void initialize(MyArray *myArray);
 /* REQUIRES: pointer myArray points to an object of struct MyArray
  * PROMISES: initilizes the member myArray->list_size to zero. In other words since
