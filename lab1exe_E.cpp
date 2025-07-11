@@ -31,6 +31,7 @@ int main(void)
   int w;
   int x[] = {99, 0, 0, -99, 0, 0};
   int y[] = {1, 0, 100, 2, 0, 3};
+  cout << x[7] << ".\n";
   w = what(x, sizeof(x) / sizeof(int));
   cout << "1st result: " << w << ".\n";
   w = what(y, sizeof(y) / sizeof(int));

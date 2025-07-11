@@ -2,7 +2,7 @@
 /*
  IMPORTANT NOTE: STUDENTS ARE NOT SUPPOESED TO MAKE ANY CHANGES TO THIS FILE
  */
-
+#include <string>
 #include <iostream>
 #include <cstring>
 using namespace std;

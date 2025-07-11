@@ -1,10 +1,18 @@
 {
     "files.associations": {
-        "cmath": "cpp",
-        "xutility": "cpp",
-        "ctime": "cpp",
-        "xlocale": "cpp",
-        "iostream": "cpp"
+      "cmath": "cpp",
+      "xutility": "cpp",
+      "ctime": "cpp",
+      "xlocale": "cpp",
+      "iostream": "cpp",
+      "ostream": "cpp",
+      "istream": "cpp",
+      "string": "cpp",
+      "initializer_list": "cpp",
+      "type_traits": "cpp",
+      "xstring": "cpp",
+      "iterator": "cpp",
+      "xmemory": "cpp"
     },
 "terminal.integrated.profiles.windows": {
   "Cygwin": {
