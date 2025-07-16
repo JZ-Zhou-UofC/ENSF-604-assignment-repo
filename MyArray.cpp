@@ -2,7 +2,7 @@
 
 int search(const MyArray* myArray, int obj)
 {
-     int currentSize = size(myArray);
+     int currentSize = myArray->list_size;
 
     for (int i = 0; i < currentSize; i++)
     {
