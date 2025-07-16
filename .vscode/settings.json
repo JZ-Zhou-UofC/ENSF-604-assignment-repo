@@ -12,7 +12,8 @@
       "type_traits": "cpp",
       "xstring": "cpp",
       "iterator": "cpp",
-      "xmemory": "cpp"
+      "xmemory": "cpp",
+      "algorithm": "cpp"
     },
 "terminal.integrated.profiles.windows": {
   "Cygwin": {
