@@ -1,37 +1,119 @@
+/*
+ *  fibonacci.cpp
+ *  ENSF 694 Lab 2 Exercise D
+ * Created by Mahmood Moussavi
+ *  Completed by: John Zhou
+ */
 
 #include <stdio.h>
 #include <time.h>
 #include <stdlib.h>
 #include <iostream>
 #include <iomanip>
+#include <chrono>
 using namespace std;
 #define N 2
-
 void myPlot(int *x, double *y1, double *y2, int size)
 {
-    // This funcitn must be completed by the students
+    FILE *gnuplotPipe = popen("gnuplot -persist", "w");
+
+    if (gnuplotPipe == NULL)
+    {
+        printf("Error: Could not open pipe to Gnuplot.\n");
+        return;
+    }
+
+    fprintf(gnuplotPipe, "set title 'Fibonacci Complexity Comparison'\n");
+    fprintf(gnuplotPipe, "set xlabel 'N (Input Size)'\n");
+    fprintf(gnuplotPipe, "set ylabel 'Execution Time (Seconds)'\n");
+    fprintf(gnuplotPipe, "set key outside\n");
+    fprintf(gnuplotPipe, "set grid\n");
+
+
+    fprintf(gnuplotPipe, "set terminal x11\n");
+
+
+    fprintf(gnuplotPipe, "set yrange [0:0.3]\n");
+
+
+    fprintf(gnuplotPipe, "set xtics rotate by -45\n");
+
+    fprintf(gnuplotPipe, "plot '-' using 1:2 with points pt 7 ps 1.5 lc rgb 'blue' title 'Iterative Method', '-' using 1:2 with points pt 7 ps 1.5 lc rgb 'red' title 'Matrix Exponentiation Method'\n");
+
+    for (int i = 0; i < size; i++)
+    {
+        fprintf(gnuplotPipe, "%d %f\n", x[i], y1[i]);
+    }
+    fprintf(gnuplotPipe, "e\n");
+
+    for (int i = 0; i < size; i++)
+    {
+        fprintf(gnuplotPipe, "%d %f\n", x[i], y2[i]);
+    }
+    fprintf(gnuplotPipe, "e\n");
+
+    fclose(gnuplotPipe);
+}
+
+void myPlot_for_recursive_method(int *x, double *y1, int size)
+{
+    FILE *gnuplotPipe = popen("gnuplot -persist", "w");
+
+    if (gnuplotPipe == NULL)
+    {
+        printf("Error: Could not open pipe to Gnuplot.\n");
+        return;
+    }
+
+    fprintf(gnuplotPipe, "set title 'Fibonacci Recursive Method'\n");
+    fprintf(gnuplotPipe, "set xlabel 'N (Input Size)'\n");
+    fprintf(gnuplotPipe, "set ylabel 'Execution Time (Seconds)'\n");
+    fprintf(gnuplotPipe, "set key outside\n");
+    fprintf(gnuplotPipe, "set grid\n");
+    fprintf(gnuplotPipe, "set terminal x11\n");
+    fprintf(gnuplotPipe, "set yrange [0:0.00001]\n");
+    fprintf(gnuplotPipe, "set xtics rotate by -45\n");
+
+    // Only one dataset plotted
+    fprintf(gnuplotPipe, "plot '-' using 1:2 with points pt 7 ps 1.5 lc rgb 'red' title 'Recursive Method'\n");
+
+    for (int i = 0; i < size; i++)
+    {
+        fprintf(gnuplotPipe, "%d %f\n", x[i], y1[i]);
+    }
+    fprintf(gnuplotPipe, "e\n");
+
+    fclose(gnuplotPipe);
 }
 
 // Function to multiply two matrices of size N x N
-void multiplyMatrices(int A[N][N], int B[N][N], int result[N][N]) {
-    for (int i = 0; i < N; i++) {
-        for (int j = 0; j < N; j++) {
+void multiplyMatrices(int A[N][N], int B[N][N], int result[N][N])
+{
+    for (int i = 0; i < N; i++)
+    {
+        for (int j = 0; j < N; j++)
+        {
             result[i][j] = 0;
         }
     }
 
-    for (int i = 0; i < N; i++) {
-        for (int j = 0; j < N; j++) {
-            for (int k = 0; k < N; k++) {
+    for (int i = 0; i < N; i++)
+    {
+        for (int j = 0; j < N; j++)
+        {
+            for (int k = 0; k < N; k++)
+            {
                 result[i][j] += A[i][k] * B[k][j];
             }
         }
     }
 }
 // Recursive funciont
-void powerMatrix(int A[N][N], int n, int result[N][N]) {
-    // Base case: if n == 0, result should be the identity matrix
-    if (n == 0) {
+void powerMatrix(int base[N][N], int exp, int result[N][N])
+{
+
+    if (exp == 0)
+    {
         result[0][0] = 1;
         result[0][1] = 0;
         result[1][0] = 0;
@@ -39,20 +121,19 @@ void powerMatrix(int A[N][N], int n, int result[N][N]) {
         return;
     }
 
-    // Temporary matrix for storing intermediate results
     int temp[N][N];
-    cout <<"rrrrrrrrrrrrrrrrrrr"<<'\n'; 
-    // Recursive case: divide the exponent by 2 and compute the power of A^(n/2)
-    powerMatrix(A, n / 2, temp);
 
-    // Multiply the result by itself
+    powerMatrix(base, exp / 2, temp);
+
     multiplyMatrices(temp, temp, result);
 
-    // If n is odd, multiply the result by A one more time
-    if (n % 2 == 1) {
-        multiplyMatrices(result, A, temp);
-        for (int i = 0; i < N; i++) {
-            for (int j = 0; j < N; j++) {
+    if (exp % 2 == 1)
+    {
+        multiplyMatrices(result, base, temp);
+        for (int i = 0; i < N; i++)
+        {
+            for (int j = 0; j < N; j++)
+            {
                 result[i][j] = temp[i][j];
             }
         }
@@ -106,15 +187,15 @@ int fibonacciIterative(int n)
 // This function is using a pointer to a funciton called fibonacciFunc
 double measureTime(int (*fibonacciFunc)(int), int n)
 {
-    clock_t start = clock();
-    
-    int a=fibonacciFunc(n);
-    cout <<a<<'\n'; 
-    clock_t end = clock();
-    
-    // Calculate time in seconds
-    double time_taken = double(end - start) / CLOCKS_PER_SEC;
-    return time_taken;
+    using namespace std::chrono;
+
+    auto start = high_resolution_clock::now();
+    fibonacciFunc(n);
+
+    auto end = high_resolution_clock::now();
+    duration<double> time_taken = end - start;
+
+    return time_taken.count(); // returns time in seconds
 }
 
 int main(void)
@@ -144,6 +225,6 @@ int main(void)
     }
 
     myPlot(N_value, iterative_result, recursive_result, 30);
-
+    myPlot_for_recursive_method(N_value, recursive_result, 30 );
     return 0;
 }
