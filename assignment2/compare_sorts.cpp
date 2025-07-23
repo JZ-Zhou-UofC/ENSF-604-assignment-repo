@@ -20,7 +20,7 @@ void strip_punctuation(char *word)
     int i = 0, j = 0;
     while (word[i])
     {
-        if ((word[i] >= 'a' && word[i] <= 'z') || (word[i] >= 'A' && word[i] <= 'Z') || word[i] == '-')
+        if ((word[i] >= 'a' && word[i] <= 'z') || (word[i] >= 'A' && word[i] <= 'Z') || word[i] == '-' || (word[i] >= '0' && word[i] <= '9'))
         {
             word[j] = word[i];
             j++;
@@ -167,7 +167,7 @@ void sort_and_measure_shell_bubble(char words[MAX_UNIQUE_WORDS][MAX_WORD_SIZE], 
 
 int main()
 {
-    const char *input_file = "C:\\Users\\john2\\Desktop\\uofc\\c++\\ENSF-604-assignment-repo\\assignment2\\input.txt";
+    const char *input_file = "C:\\Users\\john2\\OneDrive\\Desktop\\uofc\\c\\ENSF-604-assignment-repo\\assignment2\\input.txt";
 
     char words[MAX_UNIQUE_WORDS][MAX_WORD_SIZE];
     int num_words;
@@ -181,13 +181,13 @@ int main()
     }
 
     sort_and_measure_quicksort(words, indices, num_words, quicksort, "Quick Sort");
-    write_words("/cygdrive/c/Users/john2/Desktop/uofc/c++/ENSF-604-assignment-repo/assignment2/output_quicksort.txt", words, indices, num_words);
+    write_words("C:\\Users\\john2\\OneDrive\\Desktop\\uofc\\c\\ENSF-604-assignment-repo\\assignment2\\output_quicksort.txt", words, indices, num_words);
 
     sort_and_measure_shell_bubble(words, indices, num_words, shellsort, "Shell Sort");
-    write_words("/cygdrive/c/Users/john2/Desktop/uofc/c++/ENSF-604-assignment-repo/assignment2/output_shellsort.txt", words, indices, num_words);
+    write_words("C:\\Users\\john2\\OneDrive\\Desktop\\uofc\\c\\ENSF-604-assignment-repo\\assignment2\\output_shellsort.txt", words, indices, num_words);
 
     sort_and_measure_shell_bubble(words, indices, num_words, bubblesort, "Bubble Sort");
-    write_words("/cygdrive/c/Users/john2/Desktop/uofc/c++/ENSF-604-assignment-repo/assignment2/output_bubblesort.txt", words, indices, num_words);
+    write_words("C:\\Users\\john2\\OneDrive\\Desktop\\uofc\\c\\ENSF-604-assignment-repo\\assignment2\\output_bubblesort.txt", words, indices, num_words);
 
     return 0;
 }

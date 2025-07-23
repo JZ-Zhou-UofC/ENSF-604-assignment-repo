@@ -15,6 +15,7 @@ using namespace std;
 #define N 2
 void myPlot(int *x, double *y1, double *y2, int size)
 {
+    // I use windows. So this may not be working on a mac or linux.
     FILE *gnuplotPipe = popen("gnuplot -persist", "w");
 
     if (gnuplotPipe == NULL)
