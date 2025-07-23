@@ -22,7 +22,7 @@ int main()
     
     mars(arr[1] + 300, p);
     cout << endl << arr[0] << "   " << arr[1] << endl;
-    
+     cout << endl << arr[0]<< "   " << arr[1] << "   " << arr[2]  ;
     return 0;
 }
 

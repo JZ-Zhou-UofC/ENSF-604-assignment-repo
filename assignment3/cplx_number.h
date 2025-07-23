@@ -8,7 +8,8 @@
  * and imagM (the imaginary part of a complex number).
  */
 
-class Cplx {
+
+ class Cplx {
 public:
     Cplx ();
     // PROMISES: initializes the real part and the imaginary part of a complex number
@@ -46,5 +47,5 @@ private:
     double realM;  // the real part of a complex number
     double imagM;  // the imaginary part of a complex number
 };
-
+void global_print(const Cplx& n);
 #endif
