@@ -4,7 +4,7 @@ Line 2 >>  Passed
 Line 3 >>  Passed
 Line 4 >>  Passed
 Line 5 >>  Passed
-Line 6 >>  Failed in is_Full(): expected value is 1, not 0
+Line 6 >>  Passed
 Line 7 >>  Passed
 Line 8 >>  Passed
 Line 9 >>  Passed

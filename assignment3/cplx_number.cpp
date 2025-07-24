@@ -1,5 +1,6 @@
 //  cplx_number.cpp
 // ENSF 614 Fall 2022 LAB 3 - EXERCISE B
+// implemented by John Zhou
 
 #include "cplx_number.h"
 #include <iostream>

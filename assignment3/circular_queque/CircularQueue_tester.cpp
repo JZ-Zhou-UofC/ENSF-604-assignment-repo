@@ -36,7 +36,7 @@ int main() {
 using namespace std;
 #include "CircularQueue.h"
 // STUDENT MUST USE THE FULL PATH FOR YOUR WORKING DIRECTOR IN THE FOLLOWING LINE
-const char* input_file_full_path = "C:\\Users\\john2\\Desktop\\uofc\\c++\\ENSF-604-assignment-repo\\assignment3\\cq\\data2.txt";
+const char* input_file_full_path = "C:\\Users\\john2\\Desktop\\uofc\\c++\\ENSF-604-assignment-repo\\assignment3\\cq\\data1.txt";
 
 
 

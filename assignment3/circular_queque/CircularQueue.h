@@ -9,7 +9,7 @@
 #define CircularQueue_h
 
 #include <iostream>
-#define SIZE 10
+#define SIZE 4
 
 class CircularQueue {
 private:
@@ -25,7 +25,7 @@ public:
     /* PROMISES: return value is true if queue is full */
     bool isEmpty()const;
     /* PROMISES: return value is true if queue is empty */
-    int enqueue(int v);
+    int enqueue(int v);// I believe there is a typo in this signature. this function should not return anything
     /* PROMISES: adds value v to the tail. */
     int dequeue();
     /* PROMISES: returns the position of the element representing, eliminates its value */

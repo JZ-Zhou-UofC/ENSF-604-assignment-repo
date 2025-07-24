@@ -1,7 +1,7 @@
 //
 //  CircularQueue.cpp
 //  Circular Queue
-//
+// ENSF 694 Summer 2025 LAB 3 - EXERCISE D
 //  Created by Mahmood Moussavi on 2024-04-09.
 // implemented by: John Zhou
 
@@ -15,7 +15,7 @@ CircularQueue::CircularQueue() : head(0), tail(0), count(0)
 bool CircularQueue::isFull() const
 {
 
-    return count == SIZE;
+    return count == (SIZE-1);
 }
 
 bool CircularQueue::isEmpty() const
