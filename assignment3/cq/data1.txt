@@ -1,0 +1,13 @@
+new
+enqueue 10
+enqueue 20
+enqueue 30
+count 3
+isFull 1
+dequeue 10
+dequeue 20
+count 1
+isFull 0
+dequeue 30
+count 0
+isEmpty 1
