@@ -13,6 +13,9 @@ Cplx::Cplx(): realM(0), imagM(0) {
 Cplx::Cplx(double real , double imag ): realM(real),
 imagM(imag) {
     // point three - When the program reaches this point for the first time
+    cout<< realM<<"aaaaaaaaaa        ";
+    cout<< realM<<"   ";
+    cout<< imagM<<"   ";
 }
 
 double Cplx::getRealPart() const {
@@ -27,6 +30,9 @@ double Cplx::getImaginaryPart( ) const {
 void Cplx::setRealPart(double arg) {
     
     realM = arg;
+    cout<< realM<<"aaaaaaaaaa        ";
+    cout<< realM<<"   ";
+    cout<< imagM<<"   ";
     // Point one
 }
 
