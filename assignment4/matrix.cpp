@@ -1,5 +1,11 @@
-//   matrix.cpp
 
+
+/*
+ *  matrix.cpp
+ * ENSF 694 - Lab 4 Exercise D
+ *  Created by Mahmood Moussavi
+ *  Completed by: John Zhou
+ */
 #include "matrix.h"
 
 Matrix::Matrix(int r, int c) : rowsM(r), colsM(c)

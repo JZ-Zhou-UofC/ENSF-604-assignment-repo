@@ -1,5 +1,10 @@
 #include "lookupTable.h"
-
+/*
+ * lookupTable.cpp
+ *  ENSF 694 Lab 4, exercise A part II
+ *  Created by Mahmood Moussavi
+ *  Completed by: John Zhou
+ */
 LT_Node::LT_Node(const Pair &pairA, LT_Node *nextA) : pairM(pairA), nextM(nextA)
 {
 }

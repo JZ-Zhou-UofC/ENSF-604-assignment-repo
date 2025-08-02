@@ -1,5 +1,10 @@
-// ENSF 694 Spring 2024 lab4exe_D.cpp
 
+/*
+ * lab4exe_D.cpp
+ * ENSF 694 - Lab 4 Exercise D
+ *  Created by Mahmood Moussavi
+ *  Completed by: John Zhou
+ */
 #include <iostream>
 #include <fstream>
 #include <iomanip>

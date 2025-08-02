@@ -1,3 +1,10 @@
+
+/*
+ * HashTable.cpp
+ * ENSF 694 - Lab 4 Exercise E
+ *  Created by Mahmood Moussavi
+ *  Completed by: John Zhou
+ */
 #include "HashTable.h"
 #include "Node.h"
 #include "List.h"

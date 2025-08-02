@@ -1,4 +1,10 @@
-// ENSF 694 - Lab 4 Exercise C
+
+/*
+ * lab4exe_C.cpp
+ * ENSF 694 - Lab 4 Exercise C
+ *  Created by Mahmood Moussavi
+ *  Completed by: John Zhou
+ */
 #include <cstring> 
 #include <iostream>
 using namespace std;
