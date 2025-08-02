@@ -7,6 +7,7 @@
 #include "HashTable.h"
 #include "Flight.h"
 #include <string>
+#include <iomanip>
 using namespace std;
 
 void read_flight_info(ifstream &fin, vector<Flight> &flights) {
@@ -59,7 +60,7 @@ int main(int argc, char* argv[]) {
         return 1;
     }
 
-    ifstream fin("input.txt");
+
     if (!fin) {
         cerr << "Error: cannot open file " << argv[1] << endl;
         return 1;
