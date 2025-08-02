@@ -1,4 +1,5 @@
 // ENSF 694 - Lab 4 Exercise C
+#include <cstring> 
 #include <iostream>
 using namespace std;
 
@@ -28,7 +29,12 @@ int main(void)
     const char** z = s;
     z += 1;
 
-    
+    // The value of **z is: X
+    // The value of *z is: XY
+    // The value of **(z-1) is: A
+    // The value of *(z-1) is: AB
+    // The value of z[1][1] is: Z
+    // The value of *(*(z+1)+1) is: Z
     cout << "The value of **z is: " << **z << endl;
     cout << "The value of *z is: " << *z << endl;
     cout << "The value of **(z-1) is: " << **(z-1)<< endl;
@@ -53,7 +59,7 @@ int main(void)
     cout << "Here is your array of ints after sorting:  \n" ;
     for(i = 0; i < n_elements; i++)
         cout << a[i] << endl;
-#if 0
+#if 1
     const char* strings[] = { "Red", "Blue", "pink","apple", "almond","white",
                                                "nut", "Law", "cup"};
     
@@ -94,5 +100,24 @@ void insertion_sort(int *a, int n)
         }
         
         a[j] = value_to_insert;
+    }
+}
+void insertion_sort(const char** str_array, int n)
+{
+    int i;
+    int j;
+    const char* pointer_to_insert;
+    
+    for (i = 1; i < n; i++) {
+        pointer_to_insert = str_array[i];
+        
+        /* Shift values greater than pointer_to_insert. */
+        j = i;
+        while ( j > 0 && strcmp(str_array[j - 1], pointer_to_insert) > 0) {
+            str_array[j] = str_array[j - 1];
+            j--;
+        }
+        
+        str_array[j] = pointer_to_insert;
     }
 }
