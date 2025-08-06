@@ -88,7 +88,7 @@ void HashTable::printTable() const
     cout << "Total records: " << getTotalRecords() << endl;
     cout << "Table size: " << this->getTableSize() << endl;
     cout << "Packing density: " << getPackingDensity() << endl;
-    cout << "Table density: " << this->getTableDensity() << endl;
+    cout << "Table density: " << getTableDensity() << endl;
     cout << "Hash efficiency: " << this->getHashEfficiency() << endl;
 
     for (int i = 0; i < tableSize; ++i)
