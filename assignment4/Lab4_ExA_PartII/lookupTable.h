@@ -33,8 +33,9 @@ struct Pair
 struct LT_Node {
     Pair pairM;
     LT_Node *nextM;
+    LT_Node *prevM;
     // This ctor should be convenient in insert and copy operations.
-    LT_Node(const Pair& pairA, LT_Node *nextA);
+    LT_Node(const Pair& pairA,  LT_Node *prevA,LT_Node *nextA);
     // PROMISES: initializes the data members pairM and nextM, with pairA and nextA
     // respectively
 };

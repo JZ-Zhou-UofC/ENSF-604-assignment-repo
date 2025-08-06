@@ -5,7 +5,7 @@
  *  Created by Mahmood Moussavi
  *  Completed by: John Zhou
  */
-LT_Node::LT_Node(const Pair &pairA, LT_Node *nextA) : pairM(pairA), nextM(nextA)
+LT_Node::LT_Node(const Pair &pairA, LT_Node *prevA, LT_Node *nextA) : pairM(pairA), nextM(nextA), prevM(prevA)
 {
 }
 LookupTable::LookupTable() : sizeM(0), headM(nullptr), cursorM(nullptr)
@@ -20,7 +20,7 @@ LookupTable::LookupTable(const LookupTable &source) : headM(nullptr), cursorM(nu
         return;
     }
 
-    headM = new LT_Node(source.headM->pairM, nullptr);
+    headM = new LT_Node(source.headM->pairM, nullptr, nullptr);
 
     LT_Node *sourcePtr = source.headM->nextM;
     LT_Node *destPtr = headM;
@@ -31,13 +31,14 @@ LookupTable::LookupTable(const LookupTable &source) : headM(nullptr), cursorM(nu
 
     while (sourcePtr != nullptr)
     {
-        destPtr->nextM = new LT_Node(sourcePtr->pairM, nullptr);
+        destPtr->nextM = new LT_Node(sourcePtr->pairM, destPtr, nullptr);
+        destPtr = destPtr->nextM;
 
         if (source.cursorM == sourcePtr)
         {
-            cursorM = destPtr->nextM;
+            cursorM = destPtr;
         }
-        destPtr = destPtr->nextM;
+
         sourcePtr = sourcePtr->nextM;
     }
 }
@@ -54,7 +55,7 @@ LookupTable &LookupTable::operator=(const LookupTable &rhs)
         current = current->nextM;
         delete temp;
     }
-    headM = new LT_Node(rhs.headM->pairM, nullptr);
+    headM = new LT_Node(rhs.headM->pairM, nullptr, nullptr);
 
     LT_Node *rhsPtr = rhs.headM->nextM;
     LT_Node *destPtr = headM;
@@ -65,7 +66,7 @@ LookupTable &LookupTable::operator=(const LookupTable &rhs)
 
     while (rhsPtr != nullptr)
     {
-        destPtr->nextM = new LT_Node(rhsPtr->pairM, nullptr);
+        destPtr->nextM = new LT_Node(rhsPtr->pairM, destPtr, nullptr);
 
         if (rhs.cursorM == rhsPtr)
         {
@@ -129,9 +130,10 @@ void LookupTable::insert(const Pair &pairA)
         }
         current = current->nextM;
     }
-    LT_Node *newElement = new LT_Node(pairA, nullptr);
+    LT_Node *newElement = new LT_Node(pairA, nullptr, nullptr);
     if (headM == nullptr || pairA.key < headM->pairM.key)
     {
+        headM->prevM = newElement;
         newElement->nextM = headM;
         headM = newElement;
     }
@@ -143,6 +145,12 @@ void LookupTable::insert(const Pair &pairA)
             prevNode = prevNode->nextM;
         }
         newElement->nextM = prevNode->nextM;
+
+        newElement->prevM = prevNode;
+        if (prevNode->nextM != nullptr)
+        {
+            prevNode->nextM->prevM = newElement; 
+        }
         prevNode->nextM = newElement;
     }
 
@@ -243,12 +251,11 @@ void LookupTable::display() const
     while (current != nullptr)
     {
         std::cout << current->pairM.key << "x = " << current->pairM.datum.getx() << "y= " << current->pairM.datum.gety() << "label = " << current->pairM.datum.get_label() << endl;
-        
+
         current = current->nextM;
     }
     std::cout << std::endl;
 }
-
 
 bool LookupTable::isEmpty() const
 {
