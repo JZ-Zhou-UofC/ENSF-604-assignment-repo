@@ -1,9 +1,9 @@
 //
 //  AVL tree.cpp
 //  AVL tree
-//
+// ENSF 694 - Lab 5 Exercise A
 //  Created by Mahmood Moussavi on 2024-05-22.
-//
+// Completed by: John Zhou
 
 #include "AVL_tree.h"
 using namespace std;
